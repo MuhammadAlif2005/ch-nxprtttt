@@ -5,9 +5,10 @@ import {defineConfig, loadEnv} from 'vite';
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
+  const isProduction = mode === 'production';
   
   return {
-    base: '/ch-nxprtttt/', 
+    base: isProduction ? '/ch-nxprtttt/' : '/', 
     
     plugins: [react(), tailwindcss()],
     define: {
